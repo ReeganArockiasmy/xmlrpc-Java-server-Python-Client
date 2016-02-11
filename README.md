@@ -47,7 +47,7 @@ import java.util.Hashtable;
  */
 public class App 
 {
-    public static void main( String[] args ) {
+    
 
      public Hashtable sumAndDifference(int x, int y) {
         Hashtable result = new Hashtable();
@@ -60,7 +60,7 @@ public class App
         System.out.println("Print Systems");
     }
 
-
+    public static void main( String[] args ) {
         try {
             WebServer server = new WebServer(8080);
             server.addHandler("sample", new App());
