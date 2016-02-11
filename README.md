@@ -60,7 +60,7 @@ public class App
         System.out.println("Print Systems");
     }
 
-    public static void main(String[] args) {
+
         try {
             WebServer server = new WebServer(8080);
             server.addHandler("sample", new App());
