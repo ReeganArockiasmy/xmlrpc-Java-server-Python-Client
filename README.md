@@ -1,4 +1,6 @@
 # xmlrpc-Java-server-Python-Client
+##Java Server
+
 ```sh
 	mvn archetype:create -DgroupId=xmlrpc.server -DartifactId=JavaServer
 ```
@@ -69,22 +71,25 @@ public class App
     }
 }
 ```
-cd JavaServer
-mvn package
+```sh
+	cd JavaServer
+	mvn package
+	mvn dependency:copy-dependencies -DoutputDirectory=jar-dir
+	java -cp jar-dir/xmlrpc-helma-1.0.jar:.:jar-dir/xerces-1.4.0.jar:.:target/JavaServer-1.0-SNAPSHOT.jar xmlrpc.server.App
+
+```
 
 
 
-mvn dependency:copy-dependencies -DoutputDirectory=jar-dir
-
-java -cp jar-dir/xmlrpc-helma-1.0.jar:.:jar-dir/xerces-1.4.0.jar:.:target/JavaServer-1.0-SNAPSHOT.jar xmlrpc.server.App
 
 
-**Python Client
+
+##Python Client
 
 open new terminal
-
+```python
 >>> import xmlrpclib
 >>> proxy=xmlrpc.ServerProxy("http://localhost:8080/")
 {'sum': 220, 'difference': -20}
-
+```
 
