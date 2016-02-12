@@ -90,7 +90,8 @@ open new terminal
 ```python
 >>> import xmlrpclib
 >>> proxy=xmlrpclib.ServerProxy("http://localhost:8080/")
->>> proxy.sample.sumAndDifference(10,20)
-{'sum': 220, 'difference': -20}
+>>> proxy.sample.sumAndDifference(100,50)
+{'sum': 150, 'difference': 50}
+
 ```
 
