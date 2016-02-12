@@ -10,6 +10,9 @@ And open the *pom.xml* file in
 Add this dependency in
 
 ```xml
+<dependencies>
+    ....
+
 	<dependency>
             <groupId>xmlrpc-helma</groupId>
             <artifactId>xmlrpc-helma</artifactId>
@@ -17,16 +20,12 @@ Add this dependency in
         </dependency>
 
         <dependency>
-            <groupId>org.apache.xmlrpc</groupId>
-            <artifactId>xmlrpc-client</artifactId>
-            <version>3.1.3</version>
-        </dependency>
-
-        <dependency>
             <groupId>xerces</groupId>
             <artifactId>xerces</artifactId>
             <version>1.4.0</version>
         </dependency>
+    .....
+<dependencies>
 ```
 
 And open your Java application file add those function
@@ -70,3 +69,22 @@ public class App
     }
 }
 ```
+cd JavaServer
+mvn package
+
+
+
+mvn dependency:copy-dependencies -DoutputDirectory=jar-dir
+
+java -cp jar-dir/xmlrpc-helma-1.0.jar:.:jar-dir/xerces-1.4.0.jar:.:target/JavaServer-1.0-SNAPSHOT.jar xmlrpc.server.App
+
+
+**Python Client
+
+open new terminal
+
+>>> import xmlrpclib
+>>> proxy=xmlrpc.ServerProxy("http://localhost:8080/")
+{'sum': 220, 'difference': -20}
+
+
