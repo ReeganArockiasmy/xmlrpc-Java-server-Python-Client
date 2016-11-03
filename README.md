@@ -49,7 +49,7 @@ import java.util.Hashtable;
 public class App 
 {
     
-
+     // This public method will be exposed to XML-RPC client
      public Hashtable sumAndDifference(int x, int y) {
         Hashtable result = new Hashtable();
         result.put("sum", new Integer(x + y));
@@ -64,6 +64,7 @@ public class App
     public static void main( String[] args ) {
         try {
             WebServer server = new WebServer(8080);
+            // Our handler is a regular java object
             server.addHandler("sample", new App());
         } catch (Exception exception) {
             System.err.println("JavaServer" + exception.toString());
@@ -90,6 +91,7 @@ open new terminal
 ```python
 >>> import xmlrpclib
 >>> proxy=xmlrpclib.ServerProxy("http://localhost:8080/")
+# sample is object is  create in java
 >>> proxy.sample.sumAndDifference(100,50)
 {'sum': 150, 'difference': 50}
 
